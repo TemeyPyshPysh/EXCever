@@ -26,7 +26,7 @@ class CreateExcursions < ActiveRecord::Migration[5.2]
     end
 
     if  ActiveRecord::Base.connection.table_exists? :guide_excurs and dev_db
-      drop_table :excursions
+      drop_table :guide_excurs
     end
 
     create_table :guide_excurs do |t|
@@ -35,7 +35,7 @@ class CreateExcursions < ActiveRecord::Migration[5.2]
     end
 
     if  ActiveRecord::Base.connection.table_exists? :tripper_excurs and dev_db
-      drop_table :excursions
+      drop_table :tripper_excurs
     end
 
     create_table :tripper_excurs do |t|
