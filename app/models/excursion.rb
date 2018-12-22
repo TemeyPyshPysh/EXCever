@@ -1,4 +1,4 @@
 class Excursion < ApplicationRecord
   has_many :participants, :through => :tripper_excurss
-  belongs_to :participant
+  has_one :participant
 end
