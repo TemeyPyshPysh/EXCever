@@ -1,5 +1,4 @@
 class Api::ExcursionsController < ApplicationController
-
   def index
     tmp = Excursion.all.to_json
     if tmp == [].to_json
