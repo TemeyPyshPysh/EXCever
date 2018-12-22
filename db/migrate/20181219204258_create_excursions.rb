@@ -20,7 +20,7 @@ class CreateExcursions < ActiveRecord::Migration[5.2]
     create_table :excursions do |t|
       t.string :name, null: false
       t.date :start_date, null: false
-      t.text :description, default: ''
+      t.text :description
       t.string :short_description, null: false
       t.timestamps
     end
