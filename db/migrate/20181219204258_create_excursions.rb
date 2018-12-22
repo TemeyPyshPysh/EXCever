@@ -1,6 +1,6 @@
 class CreateExcursions < ActiveRecord::Migration[5.2]
   def change
-    dev_db = false
+    dev_db = true
 
     if ActiveRecord::Base.connection.table_exists? :participants and dev_db
       drop_table :participants
@@ -20,8 +20,8 @@ class CreateExcursions < ActiveRecord::Migration[5.2]
     create_table :excursions do |t|
       t.string :name, null: false, unique: true
       t.date :start_date, null: false
-      t.string :short_description, null: false
       t.text :description
+      t.string :short_description, null: false
       t.belongs_to :guide, index: true
       t.timestamps
     end
