@@ -1,7 +1,7 @@
 ActiveAdmin.register Excursion do
   permit_params :name, :start_date, :short_description, :description, :guide_id
 
-  filter :name
+  filter :name, :short_description
 
   form do |f|
     f.inputs do
