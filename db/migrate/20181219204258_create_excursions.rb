@@ -30,8 +30,8 @@ class CreateExcursions < ActiveRecord::Migration[5.2]
     end
 
     create_table :guide_excurs do |t|
-      t.integer :id_guide, null: false, index: true
-      t.integer :id_excurs, null: false, index: true
+      t.belongs_to :guide, null: false, index: true
+      t.belongs_to :excursion, null: false, index: true
     end
 
     if  ActiveRecord::Base.connection.table_exists? :tripper_excurs and dev_db
@@ -39,14 +39,14 @@ class CreateExcursions < ActiveRecord::Migration[5.2]
     end
 
     create_table :tripper_excurs do |t|
-      t.integer :id_excurs, null: false, index: true
-      t.integer :id_tripper, null: false, index: true
+      t.belongs_to :excursion, null: false, index: true
+      t.belongs_to :tripper, null: false, index: true
     end
 
-    add_foreign_key :guide_excurs, :participants, column: :id_guide
-    add_foreign_key :guide_excurs, :excursions, column: :id_excurs
-    add_foreign_key :tripper_excurs, :participants, column: :id_tripper
-    add_foreign_key :tripper_excurs, :excursions, column: :id_excurs
+    add_foreign_key :guide_excurs, :participants, column: :guide_id
+    add_foreign_key :guide_excurs, :excursions, column: :excursion_id
+    add_foreign_key :tripper_excurs, :participants, column: :tripper_id
+    add_foreign_key :tripper_excurs, :excursions, column: :excursion_id
     add_index :participants, :nickname, unique: true
   end
 end
