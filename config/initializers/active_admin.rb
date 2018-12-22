@@ -155,7 +155,6 @@ ActiveAdmin.setup do |config|
   #
   config.localize_format = :long
   config.comments = false
-  config.show_comments_in_menu = false
   # == Setting a Favicon
   #
   # config.favicon = 'favicon.ico'
