@@ -18,11 +18,11 @@ class CreateExcursions < ActiveRecord::Migration[5.2]
     end
 
     create_table :excursions do |t|
-      t.string :name, null: false
+      t.string :name, null: false, unique: true
       t.date :start_date, null: false
+      t.string :short_description, null: false
       t.text :description
       t.belongs_to :guide, index: true
-      t.string :short_description, null: false
       t.timestamps
     end
 
