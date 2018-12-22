@@ -7,7 +7,7 @@ class Participant < ApplicationRecord
       errors.add(:nickname, "can't be empty")
     end
     if Participant.all.map{|t| t.nickname}.include? nickname
-      erros.add(:nickname, "must be unique!")
+      errors.add(:nickname, "must be unique!")
     end
   end
 
