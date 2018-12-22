@@ -1,13 +1,18 @@
 class CreateExcursions < ActiveRecord::Migration[5.2]
   def change
-    # drop_table :users
+    if ActiveRecord::Base.connection.table_exists? :participants
+      drop_table :participants
+
     create_table :participants do |t|
       t.string :full_name
       t.string :nickname
       t.integer :rating
       t.timestamps
     end
-    drop_table :excursions
+
+    if  ActiveRecord::Base.connection.table_exists? :excursions
+      drop_table :excursions
+
     create_table :excursions do |t|
       t.string :name
       t.date :start_date
