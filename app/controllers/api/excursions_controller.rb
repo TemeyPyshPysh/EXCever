@@ -1,4 +1,4 @@
-class Api::ExcursionController < ApplicationController
+class Api::ExcursionsController < ApplicationController
 
   def index
     tmp = Excursion.all.to_json
