@@ -154,7 +154,10 @@ ActiveAdmin.setup do |config|
   # https://github.com/svenfuchs/i18n/blob/master/lib%2Fi18n%2Fbackend%2Fbase.rb#L52
   #
   config.localize_format = :long
+
   config.comments = false
+
+  config.root_to = "excursions"
   # == Setting a Favicon
   #
   # config.favicon = 'favicon.ico'
