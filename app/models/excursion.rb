@@ -1,5 +1,11 @@
 class Excursion < ApplicationRecord
-  validates :start_date, not_in_past: true
+  validate :start_date_cannot_be_in_the_past
+
+  def expiration_date_cannot_be_in_the_past
+    if start_date.present? && start_date < Date.today
+      errors.add(:start_date, "can't be in the past")
+    end
+  end
 
   has_many :participants, :through => :tripper_excurss
   has_one :participant
