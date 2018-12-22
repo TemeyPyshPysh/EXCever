@@ -5,7 +5,7 @@ class CreateExcursions < ActiveRecord::Migration[5.2]
       t.date :start_date
       t.text :description
       t.text :short_description
-      t.belongs_to :guide
+      t.belongs_to :user
       t.timestamps
     end
 
