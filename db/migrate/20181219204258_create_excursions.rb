@@ -2,6 +2,7 @@ class CreateExcursions < ActiveRecord::Migration[5.2]
   def change
     if ActiveRecord::Base.connection.table_exists? :participants
       drop_table :participants
+    end
 
     create_table :participants do |t|
       t.string :full_name
@@ -12,6 +13,7 @@ class CreateExcursions < ActiveRecord::Migration[5.2]
 
     if  ActiveRecord::Base.connection.table_exists? :excursions
       drop_table :excursions
+    end
 
     create_table :excursions do |t|
       t.string :name
