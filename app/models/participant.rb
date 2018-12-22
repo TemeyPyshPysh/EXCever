@@ -16,7 +16,7 @@ class Participant < ApplicationRecord
       errors.add(:full_name, "can't be empty")
     end
     if full_name.length > 40
-      erros.add(:full_name, "can't be more than 40 characters")
+      errors.add(:full_name, "can't be more than 40 characters")
     end
   end
 
