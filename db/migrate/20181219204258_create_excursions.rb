@@ -21,17 +21,9 @@ class CreateExcursions < ActiveRecord::Migration[5.2]
       t.string :name, null: false
       t.date :start_date, null: false
       t.text :description
+      t.belongs_to :guide, index: true
       t.string :short_description, null: false
       t.timestamps
-    end
-
-    if  ActiveRecord::Base.connection.table_exists? :guide_excurs and dev_db
-      drop_table :guide_excurs
-    end
-
-    create_table :guide_excurs do |t|
-      t.belongs_to :guide, null: false, index: true
-      t.belongs_to :excursion, null: false, index: true
     end
 
     if  ActiveRecord::Base.connection.table_exists? :tripper_excurs and dev_db
@@ -43,8 +35,7 @@ class CreateExcursions < ActiveRecord::Migration[5.2]
       t.belongs_to :tripper, null: false, index: true
     end
 
-    add_foreign_key :guide_excurs, :participants, column: :guide_id
-    add_foreign_key :guide_excurs, :excursions, column: :excursion_id
+    add_foreign_key :excursions, :participants, column: :guide_id
     add_foreign_key :tripper_excurs, :participants, column: :tripper_id
     add_foreign_key :tripper_excurs, :excursions, column: :excursion_id
     add_index :participants, :nickname, unique: true
