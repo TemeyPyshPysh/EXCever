@@ -1,6 +1,8 @@
 class CreateExcursions < ActiveRecord::Migration[5.2]
   def change
-    if ActiveRecord::Base.connection.table_exists? :participants
+    dev_db = true
+
+    if ActiveRecord::Base.connection.table_exists? :participants and dev_db
       drop_table :participants
     end
 
@@ -11,7 +13,7 @@ class CreateExcursions < ActiveRecord::Migration[5.2]
       t.timestamps
     end
 
-    if  ActiveRecord::Base.connection.table_exists? :excursions
+    if  ActiveRecord::Base.connection.table_exists? :excursions and dev_db
       drop_table :excursions
     end
 
@@ -23,5 +25,7 @@ class CreateExcursions < ActiveRecord::Migration[5.2]
       t.belongs_to :participant
       t.timestamps
     end
+
+    add_index :participants, :nickname, unique: true
   end
 end
