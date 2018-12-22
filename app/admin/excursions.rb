@@ -9,7 +9,6 @@ ActiveAdmin.register Excursion do
       f.input :start_date
       f.input :short_description
       f.input :description, :as => :froala_editor
-    f.inputs do
       f.input :guide_id, as: :select, :collection => Participant.all.map{|t| [t.full_name, t.id]}
     end
     f.actions
