@@ -1,4 +1,4 @@
 class Excursion < ApplicationRecord
-  belongs_to :guide
-  has_many :trippers 
+  has_many :tripper_excurs
+  has_one :guide_excurs
 end
