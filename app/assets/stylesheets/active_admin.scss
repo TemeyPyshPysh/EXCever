@@ -10,6 +10,7 @@
 // Active Admin's got SASS!
 $primary-color:   #923965   ;
 @import 'formadmin/formadmin';
+@import "active_admin_datetimepicker"
 
 // Overriding any non-variable SASS must be done after the fact.
 // For example, to change the default status-tag color:
