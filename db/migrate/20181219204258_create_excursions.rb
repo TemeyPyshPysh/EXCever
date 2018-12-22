@@ -7,7 +7,7 @@ class CreateExcursions < ActiveRecord::Migration[5.2]
       t.integer :rating
       t.timestamps
     end
-    # drop_table :users
+    drop_table :excursions
     create_table :excursions do |t|
       t.string :name
       t.date :start_date
