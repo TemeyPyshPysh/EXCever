@@ -6,7 +6,7 @@ class Excursion < ApplicationRecord
 
   def guide_id_must_be
     if guide_id.present?
-      errors.add("can't be empty")
+      errors.add(:guide_id, "can't be empty")
     end
   end
 
