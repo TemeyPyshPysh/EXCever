@@ -1,6 +1,6 @@
 class CreateExcursions < ActiveRecord::Migration[5.2]
   def change
-    dev_db = true
+    dev_db = false
 
     if ActiveRecord::Base.connection.table_exists? :participants and dev_db
       drop_table :participants
