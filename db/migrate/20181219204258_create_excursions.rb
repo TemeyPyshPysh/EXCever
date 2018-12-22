@@ -7,9 +7,9 @@ class CreateExcursions < ActiveRecord::Migration[5.2]
     end
 
     create_table :participants do |t|
-      t.string :full_name
-      t.string :nickname
-      t.integer :rating
+      t.string :full_name, null: false
+      t.string :nickname, null: false
+      t.integer :rating, default: 0
       t.timestamps
     end
 
@@ -18,14 +18,27 @@ class CreateExcursions < ActiveRecord::Migration[5.2]
     end
 
     create_table :excursions do |t|
-      t.string :name
-      t.date :start_date
-      t.text :description
-      t.text :short_description
-      t.belongs_to :participant
+      t.string :name, null: false
+      t.date :start_date, null: false
+      t.text :description, default: ''
+      t.string :short_description, null: false
       t.timestamps
     end
 
+    create_table :guide_excurs do |t|
+      t.integer :id_guide, null: false
+      t.integer :id_excurs, null: false
+    end
+
+    create_table :tripper_excurs do |t|
+      t.integer :id_excurs, null: false
+      t.integer :id_tripper, null: false
+    end
+
+    add_foreign_key :guide_excurs, :participants, column: :id_guide
+    add_foreign_key :guide_excurs, :excursions, column: :id_excurs
+    add_foreign_key :tripper_excurs, :participants, column: :id_tripper
+    add_foreign_key :tripper_excurs, :excursions, column: :id_excurs
     add_index :participants, :nickname, unique: true
   end
 end
