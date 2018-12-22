@@ -17,4 +17,9 @@ class CreateExcursions < ActiveRecord::Migration[5.2]
       t.timestamps
     end
   end
+
+  def self.down
+    drop_table :excursions
+    drop_table :users
+  end
 end
