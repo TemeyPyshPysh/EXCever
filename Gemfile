@@ -69,4 +69,6 @@ gem 'activeadmin_froala_editor'
 
 gem 'activeadmin_addons'
 
+gem 'CanCanCan'
+
 gem 'formadmin'
