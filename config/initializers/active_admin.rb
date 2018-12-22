@@ -157,7 +157,6 @@ ActiveAdmin.setup do |config|
 
   config.comments = false
 
-  config.root_to = "excursions"
   # == Setting a Favicon
   #
   # config.favicon = 'favicon.ico'
