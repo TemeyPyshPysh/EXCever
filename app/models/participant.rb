@@ -1,4 +1,8 @@
 class Participant < ApplicationRecord
+  GUIDE_ROLE = 'guide'
+  TRIPPER_ROLE = 'tripper'
+  ROLES = [GUIDE_ROLE, TRIPPER_ROLE]
+
   validate :not_empty_full_name
   validate :not_empty_uniq_nickname
 
@@ -22,4 +26,7 @@ class Participant < ApplicationRecord
 
   has_many :excursions, :through => :tripper_excurs
   has_many :excursions
+
+  validates :role, inclusion: { in: ROLES,
+                    message: 'Undefined role'}
 end
