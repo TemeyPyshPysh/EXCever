@@ -10,6 +10,7 @@ class CreateExcursions < ActiveRecord::Migration[5.2]
       t.string :full_name
       t.string :nickname
       t.integer :rating
+      t.belongs_to :excursion
       t.timestamps
     end
 
