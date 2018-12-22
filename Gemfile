@@ -67,8 +67,6 @@ gem 'devise'
 
 gem 'activeadmin_froala_editor'
 
-gem 'xdan-datetimepicker-rails'
-
-gem 'active_admin_datetimepicker'
+gem 'activeadmin_addons'
 
 gem 'formadmin'
