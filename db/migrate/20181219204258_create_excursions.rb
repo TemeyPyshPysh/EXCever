@@ -1,6 +1,6 @@
 class CreateExcursions < ActiveRecord::Migration[5.2]
   def change
-    dev_db = true
+    dev_db = false
 
     if ActiveRecord::Base.connection.table_exists? :participants and dev_db
       drop_table :participants
@@ -10,6 +10,7 @@ class CreateExcursions < ActiveRecord::Migration[5.2]
       t.string :full_name, null: false
       t.string :nickname, null: false
       t.integer :rating, default: 0
+      t.string :photo, default: "", null: false
       t.timestamps
     end
 
@@ -23,6 +24,7 @@ class CreateExcursions < ActiveRecord::Migration[5.2]
       t.text :description
       t.string :short_description, null: false
       t.belongs_to :guide, index: true
+      t.string :photo, default: "", null: false
       t.timestamps
     end
 

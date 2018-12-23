@@ -157,7 +157,7 @@ ActiveAdmin.setup do |config|
 
   config.comments = false
 
-  config.authentication_method=ActiveAdmin::CanCanAdapter
+  # config.authentication_method=ActiveAdmin::CanCanAdapter
 
   config.on_unauthorized_access = :access_denied
   # == Setting a Favicon

@@ -1,5 +1,5 @@
 ActiveAdmin.register Participant do
-  permit_params :full_name, :nickname
+  permit_params :full_name, :nickname, :photo
 
   filter :full_name
   filter :nickname
@@ -10,7 +10,7 @@ ActiveAdmin.register Participant do
     column :rating
     column :nickname
     column :created_at
-    column 'Photo' do |participant|
+    column :photo do |participant|
       image_url = participant.photo.url
       image_tag image_url, size: '100x100' if image_url.present?
     end
@@ -34,8 +34,8 @@ ActiveAdmin.register Participant do
     attributes_table do
       row :full_name
       row :photo do |t|
-        image_url = team.photo.url
-        image_tag image_url, size '100x100' if image_url.present?
+        image_url = t.photo.url
+        image_tag image_url, size: '100x100' if image_url.present?
       end
       row :rating
       row :nickname

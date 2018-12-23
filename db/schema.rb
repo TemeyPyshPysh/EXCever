@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_23_145759) do
+ActiveRecord::Schema.define(version: 2018_12_19_204258) do
 
   create_table "active_admin_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "namespace"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 2018_12_23_145759) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "admin", default: false, null: false
     t.index ["email"], name: "index_admin_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
@@ -44,9 +45,9 @@ ActiveRecord::Schema.define(version: 2018_12_23_145759) do
     t.text "description"
     t.string "short_description", null: false
     t.bigint "guide_id"
+    t.string "photo", default: "", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "photo"
     t.index ["guide_id"], name: "index_excursions_on_guide_id"
   end
 
@@ -54,10 +55,9 @@ ActiveRecord::Schema.define(version: 2018_12_23_145759) do
     t.string "full_name", null: false
     t.string "nickname", null: false
     t.integer "rating", default: 0
+    t.string "photo", default: "", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "role"
-    t.string "photo"
     t.index ["nickname"], name: "index_participants_on_nickname", unique: true
   end
 
@@ -66,18 +66,6 @@ ActiveRecord::Schema.define(version: 2018_12_23_145759) do
     t.bigint "tripper_id", null: false
     t.index ["excursion_id"], name: "index_tripper_excurs_on_excursion_id"
     t.index ["tripper_id"], name: "index_tripper_excurs_on_tripper_id"
-  end
-
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "excursions", "participants", column: "guide_id"

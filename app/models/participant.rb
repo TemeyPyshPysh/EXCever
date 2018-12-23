@@ -10,7 +10,7 @@ class Participant < ApplicationRecord
     if not nickname.present?
       errors.add(:nickname, "can't be empty")
     end
-    if Participant.all.map{|t| t.nickname}.include? nickname
+    if Participant.all.map{|t| t.nickname != nickname ? t.nickname : ""}.include? nickname
       errors.add(:nickname, "must be unique!")
     end
   end
@@ -24,6 +24,8 @@ class Participant < ApplicationRecord
   has_many :excursions, :through => :tripper_excurs
   has_many :excursions
 
-  validates :role, inclusion: { in: ROLES,
-                    message: 'Undefined role'}
+  mount_uploader :photo, PhotoUploader
+
+  # validates :role, inclusion: { in: ROLES,
+  #                   message: 'Undefined role'}
 end

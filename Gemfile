@@ -82,3 +82,4 @@ gem  'rspec-mocks'
 gem  'rspec-support'
 
 gem 'carrierwave'
+gem 'mini_magick'
