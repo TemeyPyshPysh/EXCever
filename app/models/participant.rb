@@ -15,9 +15,6 @@ class Participant < ApplicationRecord
     if not full_name.present?
       errors.add(:full_name, "can't be empty")
     end
-    if full_name.length > 40
-      errors.add(:full_name, "can't be more than 40 characters")
-    end
   end
 
   has_many :excursions, :through => :tripper_excurs

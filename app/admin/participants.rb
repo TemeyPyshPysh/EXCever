@@ -2,6 +2,7 @@ ActiveAdmin.register Participant do
   permit_params :full_name, :nickname
 
   filter :full_name
+  filter :nickname
 
   form do |f|
     f.inputs do

@@ -39,24 +39,33 @@ ActiveRecord::Schema.define(version: 2018_12_19_204258) do
   end
 
   create_table "excursions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "excurs_id"
-    t.string "name"
-    t.date "start_date"
+    t.string "name", null: false
+    t.date "start_date", null: false
     t.text "description"
-    t.text "short_description"
+    t.string "short_description", null: false
     t.bigint "guide_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["guide_id"], name: "index_excursions_on_guide_id"
   end
 
-  create_table "guides", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "guid_id"
-    t.string "name"
-    t.integer "rating"
-    t.date "registration_date"
+  create_table "participants", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "full_name", null: false
+    t.string "nickname", null: false
+    t.integer "rating", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["nickname"], name: "index_participants_on_nickname", unique: true
   end
 
+  create_table "tripper_excurs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "excursion_id", null: false
+    t.bigint "tripper_id", null: false
+    t.index ["excursion_id"], name: "index_tripper_excurs_on_excursion_id"
+    t.index ["tripper_id"], name: "index_tripper_excurs_on_tripper_id"
+  end
+
+  add_foreign_key "excursions", "participants", column: "guide_id"
+  add_foreign_key "tripper_excurs", "excursions"
+  add_foreign_key "tripper_excurs", "participants", column: "tripper_id"
 end

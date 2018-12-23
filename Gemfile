@@ -48,6 +48,7 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+
 end
 
 group :test do
@@ -72,3 +73,10 @@ gem 'activeadmin_addons'
 gem 'cancancan'
 
 gem 'formadmin'
+
+gem  'rspec-rails'
+gem  'rspec'
+gem  'rspec-core'
+gem  'rspec-expectations'
+gem  'rspec-mocks'
+gem  'rspec-support'
