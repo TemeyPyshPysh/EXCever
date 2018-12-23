@@ -35,7 +35,7 @@ ActiveAdmin.register Participant do
       row :full_name
       row :photo do |t|
         image_url = t.photo.url
-        image_tag image_url, size: '100x100' if image_url.present?
+        image_tag image_url, size: '150x150' if image_url.present?
       end
       row :rating
       row :nickname

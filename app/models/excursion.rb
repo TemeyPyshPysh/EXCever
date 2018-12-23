@@ -47,6 +47,8 @@ class Excursion < ApplicationRecord
   scope :owned, ->(user) { where(participant: user)}
   private
 
+  mount_uploader :photo, PhotoUploader
+
   has_many :participants, :through => :tripper_excurss
   has_one :participant
 end
