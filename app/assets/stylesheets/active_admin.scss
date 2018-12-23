@@ -19,3 +19,9 @@ $primary-color:   #923965   ;
 // For example, to change the default status-tag color:
 //
 //   .status_tag { background: #6090DB; }
+
+.image_preview
+{
+  max-width: 100px;
+  max-height: 100px;
+}

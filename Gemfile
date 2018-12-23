@@ -80,3 +80,5 @@ gem  'rspec-core'
 gem  'rspec-expectations'
 gem  'rspec-mocks'
 gem  'rspec-support'
+
+gem 'carrierwave'
