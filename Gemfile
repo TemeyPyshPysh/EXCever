@@ -83,3 +83,7 @@ gem  'rspec-support'
 
 gem 'carrierwave'
 gem 'mini_magick'
+
+gem 'omniauth'
+gem 'omniauth-vkontakte'
+gem 'omniauth-github'

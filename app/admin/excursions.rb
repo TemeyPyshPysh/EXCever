@@ -1,5 +1,5 @@
 ActiveAdmin.register Excursion do
-  permit_params :name, :start_date, :short_description, :description, :guide_id
+  permit_params :name, :start_date, :short_description, :description, :guide_id, :photo
 
   filter :start_date
   filter :name
@@ -37,6 +37,9 @@ ActiveAdmin.register Excursion do
     attributes_table do
       row :name
       row :start_date
+      row :guide_name do |excursion|
+        Participant.find(excursion.guide_id).full_name
+      end
       row :short_description
       row :description
       row :photo do |t|

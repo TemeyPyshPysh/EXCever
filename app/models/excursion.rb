@@ -3,13 +3,6 @@ class Excursion < ApplicationRecord
   validate :name_is_not_empty
   validate :short_discription_is_not_empty_and_its_length_less_40
   validate :guide_id_must_be
-  validate :guide_not_changed
-
-  def guide_not_changed
-    if guide_id.present? && guide_id.present? && self.persisted?
-      errors.add(:guide_id, 'guide can not be changed.')
-    end
-  end
 
   def guide_id_must_be
     if not guide_id.present?
